@@ -1,13 +1,20 @@
-// server.js
-import app from './app.js'; // Import the configured app
-import connectDB from './config/dbConfig.js'; // Import DB connection function
+import app from './app.js';
+import connectDB from './config/dbConfig.js';
 
-// Connect to MongoDB
+//const app = express();
+
+// Enable CORS for all routes
+
+
 connectDB();
 
-// Start the server
-const PORT =  5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+//app.use(cors());
 
+// app.post('/api/auth/login', (req, res) => {
+//   // Handle login
+//   res.json({ token: 'yourAuthToken' });
+// });
 
-
+app.listen(5000, () => {
+  console.log('Server is running on port 5000');
+});
