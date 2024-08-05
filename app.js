@@ -1,20 +1,20 @@
 import express from 'express';
-import router from './routes/User-auth.js';
+import dotenv from 'dotenv';
+import userRoutes from './routes/UserRoutes.js'
 import cors from 'cors';
+
+dotenv.config();
 
 const app = express();
 
-// Middleware to parse JSON
-app.use(express.json());
+// Enable CORS for all routes
 app.use(cors());
 
-// User Routes
-app.use('/api/auth', router);
+// Middleware to parse JSON
+app.use(express.json());
 
-// Testing connectivity
-app.get('/', (req, res) => {
-  res.send('Anas here');
-});
+// Use user routes
+app.use('/api/user', userRoutes);
 
-// Export the app instance for server.js to use
 export default app;
+
