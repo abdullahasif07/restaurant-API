@@ -1,14 +1,15 @@
 import express from 'express';
 import { createUser, loginUser, getUser } from '../controllers/userController.js';
-import fetchUser from '../middleware/Fetchuser.js'
+import fetchUser from '../middleware/Fetchuser.js';
 import { body } from 'express-validator';
 
 const router = express.Router();
 
 // Route for creating a user
 router.post('/createuser', [
-  body('email', 'Enter a valid Email').isEmail(),
+  body('username', 'Username is required').notEmpty(),
   body('name', 'Name should be at least 5 characters').isLength({ min: 5 }),
+  body('email', 'Enter a valid Email').isEmail(),
   body('password', 'Password should be at least 5 characters').isLength({ min: 5 }),
   body('role', 'Role must be either admin or customer').optional().isIn(['admin', 'customer']),
 ], createUser);
