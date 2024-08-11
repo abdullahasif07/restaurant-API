@@ -86,3 +86,15 @@ export const deleteItem = async (req,res) =>{
         return res.status(500).json({ error: "Internal Server Error" });
     }
 }
+
+export const getItems = async (req,res) =>{
+    try {
+    
+        let items = await MenuItem.find();
+
+        return res.status(200).json({success:true, items});
+    } catch (error) {
+        console.error('Error during getting items:', error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+}

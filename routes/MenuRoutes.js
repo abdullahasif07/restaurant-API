@@ -1,5 +1,5 @@
 import express from "express";
-import { addItem, deleteItem, updateItem } from "../controllers/menuController.js";
+import { addItem, deleteItem, updateItem, getItems } from "../controllers/menuController.js";
 import fetchUser from "../middleware/Fetchuser.js";
 import { body } from "express-validator";
 import CheckAdmin from "../middleware/CheckAdmin.js";
@@ -31,6 +31,12 @@ menuRoutes.post(
     fetchUser,
     CheckAdmin,
     deleteItem
+  );
+
+  menuRoutes.get(
+    "/menu/getitems/",
+    fetchUser,
+    getItems
   );
 
 export default menuRoutes;
