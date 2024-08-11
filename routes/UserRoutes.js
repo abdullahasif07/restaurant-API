@@ -8,7 +8,7 @@ const router = express.Router();
 // Route for creating a user
 router.post('/createuser', [
   body('username', 'Username is required').notEmpty(),
-  body('name', 'Name should be at least 5 characters').isLength({ min: 5 }),
+  //body('name', 'Name should be at least 5 characters').isLength({ min: 5 }),
   body('email', 'Enter a valid Email').isEmail(),
   body('password', 'Password should be at least 5 characters').isLength({ min: 5 }),
   body('role', 'Role must be either admin or customer').optional().isIn(['admin', 'customer']),
