@@ -10,7 +10,7 @@ export const addOrder = (req, res) => {
     }
 
     const order = new Orders({
-        user_id:req.body.user_id,
+        user_id:req.user.id,
         amount:req.body.amount,
         delivery_details:req.body.delivery_details,
         payment_method:req.body.payment_method,

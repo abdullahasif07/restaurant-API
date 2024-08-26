@@ -9,7 +9,6 @@ const orderRoutes = express.Router();
 
 orderRoutes.post('/addorder',
     [
-        body('user_id', 'User id is required').notEmpty(),
         body('items', 'items are required').notEmpty(),
         body('amount', 'amount id is required').notEmpty(),
         body('delivery_details', 'delivery_details is required').notEmpty(),
